@@ -9,7 +9,7 @@ import org.springframework.messaging.rsocket.RSocketStrategies;
 import org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler;
 import org.springframework.stereotype.Component;
 
-import com.example.rsocket.demo.shared.BookPayload;
+import com.example.rsocket.demo.shared.api.BookPayload;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

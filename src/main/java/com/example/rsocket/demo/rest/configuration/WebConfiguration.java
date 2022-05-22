@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import com.example.rsocket.demo.rest.controller.BookController;
-import com.example.rsocket.demo.shared.BookPayload;
+import com.example.rsocket.demo.shared.api.BookPayload;
 import reactor.core.publisher.Mono;
 
 

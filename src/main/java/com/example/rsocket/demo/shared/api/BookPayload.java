@@ -1,4 +1,4 @@
-package com.example.rsocket.demo.shared;
+package com.example.rsocket.demo.shared.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

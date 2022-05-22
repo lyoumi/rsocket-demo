@@ -3,7 +3,7 @@ package com.example.rsocket.demo.rest.controller;
 import org.springframework.stereotype.Component;
 
 import com.example.rsocket.demo.rest.client.RSocketClient;
-import com.example.rsocket.demo.shared.BookPayload;
+import com.example.rsocket.demo.shared.api.BookPayload;
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.example.rsocket.demo.server.entity.Book;
 import com.example.rsocket.demo.server.repository.BookRepository;
-import com.example.rsocket.demo.shared.BookPayload;
+import com.example.rsocket.demo.shared.api.BookPayload;
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
