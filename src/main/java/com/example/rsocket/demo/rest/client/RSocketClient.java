@@ -38,20 +38,20 @@ public class RSocketClient {
     public Mono<Void> deleteBookById(String id) {
         return rsocketRequester.route("delete.{id}", id)
                 .retrieveMono(Void.TYPE)
-                .doOnSuccess(unused -> log.info("Book with id {} was successfully deleted", id));
+                .doOnSuccess(unused -> log.info("Incoming delete response for {}", id));
     }
 
     public Mono<BookPayload> createBook(BookPayload book) {
         return rsocketRequester.route("save")
                 .data(book)
                 .retrieveMono(BookPayload.class)
-                .doOnSuccess(it -> log.info("Incoming payload chunk {}", it));
+                .doOnSuccess(it -> log.info("Incoming payload {}", it));
     }
 
     public Mono<BookPayload> getBookById(String id) {
         return rsocketRequester.route("find.{id}", id)
                 .retrieveMono(BookPayload.class)
-                .doOnSuccess(it -> log.info("Incoming payload chunk {}", it));
+                .doOnSuccess(it -> log.info("Incoming payload {}", it));
     }
 
     public Flux<BookPayload> getAllBooks() {

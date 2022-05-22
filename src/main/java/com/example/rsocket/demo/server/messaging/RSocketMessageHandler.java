@@ -21,13 +21,15 @@ public class RSocketMessageHandler {
     private final BookRepository bookRepository;
 
     @MessageMapping("find.all")
-    public Flux<Book> findAll() {
-        return bookRepository.findAll();
+    public Flux<BookPayload> findAll() {
+        return bookRepository.findAll()
+                .map(it -> new BookPayload(it.getId(), it.getTitle(), it.getAuthor()));
     }
 
     @MessageMapping("find.{id}")
-    public Mono<Book> findById(@DestinationVariable String id) {
-        return bookRepository.findById(id);
+    public Mono<BookPayload> findById(@DestinationVariable String id) {
+        return bookRepository.findById(id)
+                .map(it -> new BookPayload(it.getId(), it.getTitle(), it.getAuthor()));
     }
 
     @MessageMapping("delete.{id}")
@@ -37,9 +39,9 @@ public class RSocketMessageHandler {
 
     @MessageMapping("save")
     public Mono<BookPayload> createBook(Mono<BookPayload> book) {
-        return book.map(it -> new Book(it.getId(), it.getName(), it.getAuthor()))
+        return book.map(it -> new Book(it.getId(), it.getTitle(), it.getAuthor()))
                 .flatMap(bookRepository::save)
-                .map(it -> new BookPayload(it.getId(), it.getName(), it.getAuthor()));
+                .map(it -> new BookPayload(it.getId(), it.getTitle(), it.getAuthor()));
     }
 
 
